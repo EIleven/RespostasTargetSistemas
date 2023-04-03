@@ -8,7 +8,7 @@ O código que gera a aplicação e que contém as respostas está [aqui](https:/
 O objetivo deste projeto foi criar uma aplicação web utilizando Flask para exibir informações de um banco de dados. O site possui uma página inicial com um formulário para busca de informações no banco de dados e uma página de resultados para exibir as informações encontradas.
 
 #Como rodar o projeto
-Para rodar o projeto localmente, siga os seguintes passos:
+*Para rodar o projeto localmente, siga os seguintes passos:
 
 1.Clone este repositório em sua máquina local.
 1.Navegue para o diretório do projeto e crie um ambiente virtual:
