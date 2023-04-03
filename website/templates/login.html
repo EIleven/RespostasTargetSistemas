@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Login / Entrar{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    <!-- Criação do perfil-->
+    <br/>
+    <h3 align="left">Entrar</h3>
+    <br>
+    <p>senha: Teste@123465</p>
+    <p>usuário: teste0@gmail.com</p>
+    <!-- Entrada de email para criação do perfil-->
+    <div class="form-group">
+        <label for="email" >Usuário: </label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Seu Email">
+    </div>
+
+
+
+    <!-- Senha 1-->
+    <div class="form-group">
+        <label for="password1">Digite sua senha: </label>
+        <input type="password" class="form-control" id="password1" name="password1" placeholder="Senha: ">
+    </div>
+
+
+    <br />
+
+    <!-- Botão de confirmação -->
+    <button type="submit" class="btn btn-primary">
+        Entrar
+    </button>
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,128 @@
+
+nav a {
+    color: #FFFF;
+    margin-right: 10px;
+    width: auto;
+    margin-top: 4px;
+    
+}
+
+form p {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+code {
+  display: block;
+  background-color: #a4a4a4;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #B11116;
+}
+
+p ol {
+  font-weight: 500;
+}
+.questao {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.line {
+  border: 1px groove #650D0D;
+}
+
+.botao {
+  background-color: #650D0D;
+  border: 1px groove #650D0D;
+}
+
+div button .botao:hover {
+  background-color: #B11116;
+}
+
+nav a:hover {
+  background-color: #000000;
+  border-radius: 5px;
+  color: aliceblue;
+}
+
+.navbar-toggler {
+  border: none;
+  background-color: #000000;
+  outline: none;
+  cursor: pointer;
+  padding: 2px;
+  width: 45px;
+  height: 45px;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 75%;
+  height: 2px;
+  background-color: #000;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  margin: 5%;
+}
+
+.navbar-toggler-icon::before, .navbar-toggler-icon::after {
+  content: '';
+  display: grid;
+  width: 75%;
+  height: 2px;
+  background-color: #000;
+  border-radius: 5px;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  margin: auto;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  bottom: -8px;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon::before {
+  transform: translateY(0px) rotate(0deg);
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon::after {
+  transform: translateY(0px) rotate(0deg);
+}
+
+@media (min-width: 768px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 7px;
+  margin-left: 30px;
+  border-bottom: 1px solid #650D0D;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+
