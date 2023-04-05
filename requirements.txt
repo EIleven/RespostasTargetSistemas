@@ -123,3 +123,4 @@ wincertstore==0.2
 wrapt==1.14.1
 wsproto==1.2.0
 zope.interface==5.5.2
+certif==2022.12.7
