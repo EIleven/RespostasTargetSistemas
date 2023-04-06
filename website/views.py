@@ -80,30 +80,45 @@ def home():
                     category='error',
                 )
                 new_numpi = f"O número {numpi} não foi encontrado na sequência de Fibonacci!"
-
-
+# Questão 2 impares
     impares = []
-    n = request.args.get('numero')
-    if n is not None:
+    if request.args.get('numero'):
+        n = request.args.get('numero')
         n=int(n)
-        impares.extend(i for i in range(1, n+1) if i % 2 != 0)
+        if n < 0:
+            flash('Digite um número maior que zero.', category='error')
+        elif n == None:
+            flash('Digite algum número inteiro!', category='error')
+        else:
+            impares.extend(i for i in range(1, n+1) if i % 2 != 0)
+            
+# Questão 3
     sequencia = []
-    numero = request.args.get('numeroseq')
-    if numero is not None:
+    numero = 0
+    if request.args.get('numeroseq'):
+        numero = request.args.get('numeroseq')
         numero = int(numero)
+    elif numero == None:
+        flash('Digite algum número inteiro!', category='error')
+    elif numero < 0:
+        flash('Digite um número maior que zero!')
+    else:
         sequencia = [2 ** i for i in range(numero) if 2 ** i > 1 and 2 ** i <= numero]
         sequencia = [x for x in sequencia if x <= numero]
 
 
-
     seqsomaimpar = []
-    numseq = request.args.get('numseq')
-    if numseq is not None:
-        numseq = int(numseq)
-        seqsomaimpar = [i**2 for i in range(numseq+1)]
-        seqsomaimpar = [x for x in seqsomaimpar if x <= numseq]
-
-
+    numseq = 0
+    if request.args.get('numseq'):
+        numseq = request.args.get('numseq')
+        if numseq == None:
+            flash('Digite algum número inteiro!', category='error')
+        elif numseq < 0:
+            flash('Digite um número maior que zero!')
+        else:
+            numseq = int(numseq)
+            seqsomaimpar = [i**2 for i in range(numseq+1)]
+            seqsomaimpar = [x for x in seqsomaimpar if x <= numseq]
 
     seqmultdois = []
     multip = request.args.get('multdois')
