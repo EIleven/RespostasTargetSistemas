@@ -57,11 +57,14 @@ def home():
     new_numpi = ""
     if request.method == "POST":
         numpi = request.form["numpi"]
-        
         if not numpi:
             flash('Digite um número válido.', category='error')
+        elif numpi = None:
+            flash('Digite algum número inteiro!', category='error')
         elif not numpi.isnumeric():
             flash('Digite apenas números.', category='error')
+        elif numpi < 0:
+            flash('Digite um número inteiro.', category='error')            
         else:
             fibs = [0, 1]
             while fibs[-1] < int(numpi):
