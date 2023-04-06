@@ -41,7 +41,7 @@ def home():
             flash('A nota foi postada com sucesso', category='success')
     elif request.method == 'DELETE':
         note_id = request.args.get('id')
-        if note_to_delete := Note.query.filter_by(
+        if note_to_delete = Note.query.filter_by(
             id=note_id, user_id=current_user.id
         ).first():
             db.session.delete(note_to_delete)
