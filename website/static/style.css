@@ -126,3 +126,51 @@ tr:last-child {
 }
 
 
+/* Estilos personalizados */
+
+/* Definir o tamanho máximo para o elemento 'container' */
+.container {
+  max-width: 960px;
+}
+
+/* Alinhar o texto centralmente */
+.center-text {
+  text-align: center;
+}
+
+/* Adicionar margem inferior */
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+/* Adicionar altura máxima para as imagens */
+.img-fluid {
+  max-height: 350px;
+}
+
+/* Ajustar o tamanho do ícone de navegação */
+.navbar-toggler-icon {
+  font-size: 1.5rem;
+}
+
+/* Personalizar a cor do botão de navegação */
+.navbar-dark .navbar-toggler {
+  border-color: rgba(255,255,255,.5);
+}
+
+/* Personalizar a cor de fundo da barra de navegação */
+.navbar-dark {
+  background-color: #B11116;
+}
+
+/* Ajustar o espaçamento das mensagens flash */
+.alert {
+  margin-bottom: 1rem;
+}
+
+/* Ajustar o tamanho da fonte para dispositivos móveis */
+@media (max-width: 576px) {
+  h1, h2, h3, h4, h5, h6 {
+      font-size: 1.25rem;
+  }
+}
