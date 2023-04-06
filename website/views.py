@@ -26,9 +26,11 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST', 'DELETE'])
 @login_required
 def home():
+    
     indice = 13
     soma = sum(range(1, indice + 1))
     
+    note = ""
     new_note= ""
     if request.method == 'POST' and request.form.get('note') is not None:
         note = request.form.get('note')
@@ -51,11 +53,10 @@ def home():
             flash('Nota excluída com sucesso.', category='success')
         else:
             flash('Não foi possível excluir a nota.', category='error')
-            
-            
+    
     numpi= ""
     new_numpi = ""
-    if request.method == "POST":
+    if request.method == "POST" and "numpi" in request.form:
         numpi = request.form["numpi"]
         numpi = int(numpi)
         if not numpi:
