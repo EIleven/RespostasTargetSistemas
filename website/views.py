@@ -28,6 +28,8 @@ views = Blueprint('views', __name__)
 def home():
     indice = 13
     soma = sum(range(1, indice + 1))
+    
+    new_note= ""
     if request.method == 'POST' and request.form.get('note') is not None:
         note = request.form.get('note')
         if note is not None and len(note) < 1:
@@ -174,5 +176,4 @@ def home():
             caracteres[x] = caracteres [indice_final - x]
             caracteres[indice_final - x] = aux
         texto_invertido = ''.join(caracteres)
-    
-    return render_template("/home.html", user=current_user, soma=str(soma), new_numpi=new_numpi, impares=impares, sequencia=sequencia, seqsomaimpar=seqsomaimpar, seqmultdois=seqmultdois, somaresanterior=somaresanterior, seq=seq, resultado=resultado, texto_invertido=texto_invertido)
+    return render_template("/home.html", user=current_user, soma=str(soma), new_numpi=new_numpi, new_note=new_note, impares=impares, sequencia=sequencia, seqsomaimpar=seqsomaimpar, seqmultdois=seqmultdois, somaresanterior=somaresanterior, seq=seq, resultado=resultado, texto_invertido=texto_invertido)
