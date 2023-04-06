@@ -1,3 +1,14 @@
+const menuBtn = document.querySelector('.menu-btn');
+const menuLinks = document.querySelector('.menu-links');
+
+menuBtn.addEventListener('click', () => {
+  if (menuLinks.style.display === 'block') {
+    menuLinks.style.display = 'none';
+  } else {
+    menuLinks.style.display = 'block';
+  }
+});
+
 function deleteNote(noteId) {
     fetch(`/?id=${noteId}`, {
         method: "DELETE",
@@ -5,7 +16,6 @@ function deleteNote(noteId) {
         window.location.href = "/";
     });
 }
-
 
 window.addEventListener('scroll', function() {
     sessionData = {

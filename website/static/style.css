@@ -174,3 +174,56 @@ tr:last-child {
       font-size: 1.25rem;
   }
 }
+
+
+.menu-container {
+  position: fixed;
+  top: 10%;
+  right: 10%;
+}
+
+.menu-btn {
+  display: block;
+  width: 75px;
+  height: 35px;
+  background: #333;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10%;
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  font-size: 1.2rem;
+}
+
+.menu-btn:hover {
+  background-color: #B11116;
+}
+
+.menu-links {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: -20px;
+  width: 200px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.menu-links li {
+  list-style: armenian;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  color: #333;
+
+}
+
+.menu-links a:hover {
+  background: #eee
+}

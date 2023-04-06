@@ -6,348 +6,351 @@
 <hr class="line">
 <div class="container" align="center" style="text-align: justify;">
 
-<!--INÍCIO DA QUESTÃO 1-->
-  <p class="questao">1) Observe o trecho de código abaixo: </p>
-    <code>
-        int INDICE = 13, SOMA = 0, K = 0;<br>
-
-        enquanto K < INDICE faça<br>
-
-        { 
-            K = K + 1;
-
-            SOMA = SOMA + K;
-
-        }<br>
-        
-        imprimir(SOMA);
-    </code>
-    <p>Ao final do processamento, qual será o valor da variável SOMA?</p>
-    <form><p style="color: green; font-style: italic;">Resposta: {{ soma }}</p></form><br>
+<div class="menu-container">
+  <button class="menu-btn">Menu</button>
+  <div class="menu-links">
+    <a href="#q1">Questão 1</a>
+    <a href="#q2">Questão 2</a>
+    <a href="#q3">Questão 3</a>
+    <a href="#q4">Questão 4</a>
+    <a href="#q5">Questão 5</a>
+  </div>
 </div>
-<div class="container" align="center" style="text-align: justify;">
-  <p>Conteúdo da 1ª Resposta: </p>
-    <code>
-        def home():<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;indice = 13<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;k = 0<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;soma = 0<br>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;while k &lt; indice:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k += 1<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soma += k<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;return (str(soma))<br>
-        <p>Resposta: {% raw %}{{ soma|safe }}{% endraw %}</p>
-    </code>
+
+<!--INÍCIO DA QUESTÃO 1-->
+<div id="q1">
+    <p class="questao">1) Observe o trecho de código abaixo: </p>
+        <code>
+            int INDICE = 13, SOMA = 0, K = 0;<br>
+
+            enquanto K < INDICE faça<br>
+
+            { 
+                K = K + 1;
+
+                SOMA = SOMA + K;
+
+            }<br>
+            
+            imprimir(SOMA);
+        </code>
+        <p>Ao final do processamento, qual será o valor da variável SOMA?</p>
+        <form><p style="color: green; font-style: italic;">Resposta: {{ soma }}</p></form><br>
+    </div>
+    <div class="container" align="center" style="text-align: justify;">
+    <p>Conteúdo da 1ª Resposta: </p>
+        <code>
+            def home():<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;indice = 13<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;k = 0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;soma = 0<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;while k &lt; indice:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k += 1<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soma += k<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return (str(soma))<br>
+            <p>Resposta: {% raw %}{{ soma|safe }}{% endraw %}</p>
+        </code>
+    </div>
 </div>
 <br>
 <!--FIM DA QUESTÃO 1 -->
 <!--INÍCIO DA QUESTÃO 2 -->
-<div class="container" align="center" style="text-align: justify;">
-    <p class="questao">Questão: 2) Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar onde, informado um número, ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado pertence ou não a sequência. </p>
-</div>
-
-<form method="POST">
-    <br/>
-    <label for="numpi">Digite um número para descobrir a sequência de Fibonacci a partir dele e saber se ele está presente na sequência: </label>
-    <textarea class="form-control" name="numpi" id="numpi" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar Pi</button>
+<div id="q2">
+    <div class="container" align="center" style="text-align: justify;">
+        <p class="questao">Questão: 2) Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar onde, informado um número, ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado pertence ou não a sequência. </p>
     </div>
-    <br/>
-    <p style="color: green; font-style: italic;">Resposta: {{ new_numpi }}</p>
 
-</form>
-<div class="container" align="center" style="text-align: justify;">
-<p>Conteúdo da resposta para a 2ª questão:</p>
-    <br>
-    <code>
-        @views.route('/', methods=['GET', 'POST', 'DELETE'])</br>
-        @login_required</br>
-        def home():</br>
-        &nbsp;if request.method == "POST":</br>
-        &nbsp;&nbsp;numpi = request.form["numpi"]</br>
-                
-        &nbsp;&nbsp;fibs = [0, 1]</br>
-        &nbsp;&nbsp;while fibs[-1] < int(numpi):</br>
-        &nbsp;&nbsp;&nbsp;fibs.append(fibs[-1] + fibs[-2])</br>
-                
-        &nbsp;&nbsp;if int(numpi) in fibs:</br>
-        &nbsp;&nbsp;&nbsp;flash('O número {} está presente na sequência de Fibonacci'.format(numpi), category='success')</br>
-        &nbsp;&nbsp;&nbsp;new_numpi = ("O número {} foi encontrado na sequência de Fibonacci".format(numpi))</br>
-        &nbsp;&nbsp;else:</br>
-        &nbsp;&nbsp;&nbsp;flash('O número {} não está presente na sequência de Fibonacci!'.format(numpi), category='error')</br>
-        &nbsp;&nbsp;&nbsp;new_numpi = ("O número {} não foi encontrado na sequência de Fibonacci!".format(numpi))</br>
-        &nbsp;return render_template(new_numpi=new_numpi)</br>
-    </code>
+    <form method="POST">
+        <br/>
+        <label for="numpi">Digite um número para descobrir a sequência de Fibonacci a partir dele e saber se ele está presente na sequência: </label>
+        <textarea class="form-control" name="numpi" id="numpi" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar Pi</button>
+        </div>
+        <br/>
+        <p style="color: green; font-style: italic;">Resposta: {{ new_numpi }}</p>
+
+    </form>
+    <div class="container" align="center" style="text-align: justify;">
+    <p>Conteúdo da resposta para a 2ª questão:</p>
+        <br>
+        <code>
+            @views.route('/', methods=['GET', 'POST', 'DELETE'])</br>
+            @login_required</br>
+            def home():</br>
+            &nbsp;if request.method == "POST":</br>
+            &nbsp;&nbsp;numpi = request.form["numpi"]</br>
+                    
+            &nbsp;&nbsp;fibs = [0, 1]</br>
+            &nbsp;&nbsp;while fibs[-1] < int(numpi):</br>
+            &nbsp;&nbsp;&nbsp;fibs.append(fibs[-1] + fibs[-2])</br>
+                    
+            &nbsp;&nbsp;if int(numpi) in fibs:</br>
+            &nbsp;&nbsp;&nbsp;flash('O número {} está presente na sequência de Fibonacci'.format(numpi), category='success')</br>
+            &nbsp;&nbsp;&nbsp;new_numpi = ("O número {} foi encontrado na sequência de Fibonacci".format(numpi))</br>
+            &nbsp;&nbsp;else:</br>
+            &nbsp;&nbsp;&nbsp;flash('O número {} não está presente na sequência de Fibonacci!'.format(numpi), category='error')</br>
+            &nbsp;&nbsp;&nbsp;new_numpi = ("O número {} não foi encontrado na sequência de Fibonacci!".format(numpi))</br>
+            &nbsp;return render_template(new_numpi=new_numpi)</br>
+        </code>
+    </div>
 </div>
-
 <!-- INÍCIO DA QUESTÃO 3 -->
-
-<div class="container" align="center" style="text-align: justify;">
-    <p class="questao">Questão: 3) Descubra a lógica e complete o próximo elemento:</p>
-    <ol>a) 1, 3, 5, 7, ___</ol>
-    <ol>b) 2, 4, 8, 16, 32, 64, ____</ol>
-    <ol>c) 0, 1, 4, 9, 16, 25, 36, ____</ol>
-    <ol>d) 4, 16, 36, 64, ____</ol>
-    <ol>e) 1, 1, 2, 3, 5, 8, ____</ol>
-    <ol>f) 2,10, 12, 16, 17, 18, 19, ____</ol>
-</div>
-<!-- INÍCIO DA SEQUÊNCIA a) -->
-<form method="GET">
-    <br/>
-    <label for="numero">Item: a) Informe até qual número você quer preencher a sequência?</label>
-    <textarea type="number" class="form-control" name="numero" id="numero" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência a)</button>
+<div id="q3">
+    <div class="container" align="center" style="text-align: justify;">
+        <p class="questao">Questão: 3) Descubra a lógica e complete o próximo elemento:</p>
+        <ol>a) 1, 3, 5, 7, ___</ol>
+        <ol>b) 2, 4, 8, 16, 32, 64, ____</ol>
+        <ol>c) 0, 1, 4, 9, 16, 25, 36, ____</ol>
+        <ol>d) 4, 16, 36, 64, ____</ol>
+        <ol>e) 1, 1, 2, 3, 5, 8, ____</ol>
+        <ol>f) 2,10, 12, 16, 17, 18, 19, ____</ol>
     </div>
-    <br/>
-    <ul>
-        <p style="color: green; font-style: italic;">Resposta: a)         
-            {% for numero in impares %}
-            {{ numero }}
-            {% print(", ") %}
-            {% endfor %}
-        </p>
-    </ul>
-</form>
+    <!-- INÍCIO DA SEQUÊNCIA a) -->
+    <form method="GET">
+        <br/>
+        <label for="numero">Item: a) Informe até qual número você quer preencher a sequência?</label>
+        <textarea type="number" class="form-control" name="numero" id="numero" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência a)</button>
+        </div>
+        <br/>
+        <ul>
+            <p style="color: green; font-style: italic;">Resposta: a)         
+                {% for numero in impares %}
+                {{ numero }}
+                {% print(", ") %}
+                {% endfor %}
+            </p>
+        </ul>
+    </form>
 
 
-<!-- INÍCIO DA SEQUÊNCIA b) -->
-<form method="GET">
-    <br/>
-    <label for="numeroseq">Item: b) Informe até qual número você quer preencher a sequência?</label>
-    <textarea type="number" class="form-control" name="numeroseq" id="numeroseq" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência b)</button>
+    <!-- INÍCIO DA SEQUÊNCIA b) -->
+    <form method="GET">
+        <br/>
+        <label for="numeroseq">Item: b) Informe até qual número você quer preencher a sequência?</label>
+        <textarea type="number" class="form-control" name="numeroseq" id="numeroseq" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência b)</button>
+        </div>
+        <br/>
+        <ul>
+            <p style="color: green; font-style: italic;">Resposta: b)
+                {% for numero in sequencia %}
+                {{ numero }}
+                {% print(", ") %}
+                {% endfor %}
+            </p>
+        </ul>
+    </form>
+    <!-- FIM DA SEQUÊNCIA b) -->
+
+
+    <!-- INÍCIO DA SEQUÊNCIA c) -->
+
+    <form method="GET">
+        <br/>
+        <label for="numseq">Item: c) Informe até qual número você quer preencher a sequência?</label>
+        <textarea type="number" class="form-control" name="numseq" id="numseq" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência c)</button>
+        </div>
+        <br/>
+        <ul>
+            <p style="color: green; font-style: italic" aria-hidden="true">Resposta: c)
+                {% for numseq in seqsomaimpar %}
+                {{ numseq }}
+                {% print(", ") %}
+                {% endfor %}
+            </p>
+        </ul>
+    </form>
+
+    <!-- FIM DA SEQUÊNCIA c) -->
+    <!-- INÍCIO DA SEQUÊNCIA d) -->
+
+    <form method="GET">
+        <br/>
+        <label for="multdois">Item: d) Informe até qual número você quer preencher a sequência?</label>
+        <textarea type="number" class="form-control" name="multdois" id="multdois" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência d)</button>
+        </div>
+        <br/>
+        <ul>
+            <p style="color: green; font-style: italic" aria-hidden="true">Resposta: d)
+                {% for multip in seqmultdois %}
+                {{ multip }}
+                {% print(", ") %}
+                {% endfor %}
+            </p>
+        </ul>
+    </form>
+
+    <!-- FIM DA SEQUÊNCIA d) -->
+    <!-- INÍCIO DA SEQUÊNCIA e) -->
+
+    <form method="GET">
+        <br/>
+        <label for="somanterior">Item: e) Informe até qual número você quer preencher a sequência?</label>
+        <textarea type="number" class="form-control" name="somanterior" id="somanterior" rows="3" style="width: 500px; font-size: 16px; height: 35px; "></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit" class="btn btn-primary botao">Verificar sequência e)</button>
+        </div>
+        <br/>
+        <ul>
+            <p style="color: green; font-style: italic" aria-hidden="true">Resposta: e)
+                {% for valor in somaresanterior %}
+                {{ valor }}
+                    {% if valor == somaresanterior[-1] %}.{% else %},{% endif %}
+                {% endfor %}
+            </p>
+        </ul>
+    </form>
+
+    <!-- FIM DA SEQUÊNCIA e) -->
+    <!-- INÍCIO DA SEQUÊNCIA f) -->
+
+    <form method="GET">
+        <br/>
+        <label for="numrangeprimo">Item: f) Informe até qual número você quer preencher a sequência?</label>
+        <textarea type="number" class="form-control" name="numrangeprimo" id="numrangeprimo" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit" class="btn btn-primary botao">Verificar sequência f)</button>
+        </div>
+        <br/>
+        <ul>
+            <p style="color: green; font-style: italic" aria-hidden="true">Resposta: f)
+                {% for rangeprimo in seq %}
+                {{ rangeprimo }}
+                    {% if rangeprimo == seq[-1] %}.{% else %},{% endif %}
+                {% endfor %}
+            </p>
+        </ul>
+    </form>
+
+    <!-- FIM DA SEQUÊNCIA f) -->
+
+    <!-- ONTEÚDO DA RESPOSTA DA QUESTÃO 3 -->
+    <div class="container" align="center" style="text-align: justify;">
+    <p>Conteúdo da resposta para a 3ª questão:</p>
+        <br>
+        <code>
+            <p>Todo conteúdo pode ser acessado no arquivo "views.py" no <a href="">Github/Elleven</a></p>
+        </code>
     </div>
-    <br/>
-    <ul>
-        <p style="color: green; font-style: italic;">Resposta: b)
-            {% for numero in sequencia %}
-            {{ numero }}
-            {% print(", ") %}
-            {% endfor %}
-        </p>
-    </ul>
-</form>
-<!-- FIM DA SEQUÊNCIA b) -->
-
-
-<!-- INÍCIO DA SEQUÊNCIA c) -->
-
-<form method="GET">
-    <br/>
-    <label for="numseq">Item: c) Informe até qual número você quer preencher a sequência?</label>
-    <textarea type="number" class="form-control" name="numseq" id="numseq" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência c)</button>
-    </div>
-    <br/>
-    <ul>
-        <p style="color: green; font-style: italic" aria-hidden="true">Resposta: c)
-            {% for numseq in seqsomaimpar %}
-            {{ numseq }}
-            {% print(", ") %}
-            {% endfor %}
-        </p>
-    </ul>
-</form>
-
-<!-- FIM DA SEQUÊNCIA c) -->
-
-
-<!-- INÍCIO DA SEQUÊNCIA d) -->
-
-<form method="GET">
-    <br/>
-    <label for="multdois">Item: d) Informe até qual número você quer preencher a sequência?</label>
-    <textarea type="number" class="form-control" name="multdois" id="multdois" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit", class="btn btn-primary botao", onclick="atualizarPosicao()">Verificar sequência d)</button>
-    </div>
-    <br/>
-    <ul>
-        <p style="color: green; font-style: italic" aria-hidden="true">Resposta: d)
-            {% for multip in seqmultdois %}
-            {{ multip }}
-            {% print(", ") %}
-            {% endfor %}
-        </p>
-    </ul>
-</form>
-
-<!-- FIM DA SEQUÊNCIA d) -->
-
-<!-- INÍCIO DA SEQUÊNCIA e) -->
-
-<form method="GET">
-    <br/>
-    <label for="somanterior">Item: e) Informe até qual número você quer preencher a sequência?</label>
-    <textarea type="number" class="form-control" name="somanterior" id="somanterior" rows="3" style="width: 500px; font-size: 16px; height: 35px; "></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit" class="btn btn-primary botao">Verificar sequência e)</button>
-    </div>
-    <br/>
-    <ul>
-        <p style="color: green; font-style: italic" aria-hidden="true">Resposta: e)
-            {% for valor in somaresanterior %}
-            {{ valor }}
-                {% if valor == somaresanterior[-1] %}.{% else %},{% endif %}
-            {% endfor %}
-        </p>
-    </ul>
-</form>
-
-<!-- FIM DA SEQUÊNCIA e) -->
-
-
-<!-- INÍCIO DA SEQUÊNCIA f) -->
-
-<form method="GET">
-    <br/>
-    <label for="numrangeprimo">Item: f) Informe até qual número você quer preencher a sequência?</label>
-    <textarea type="number" class="form-control" name="numrangeprimo" id="numrangeprimo" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit" class="btn btn-primary botao">Verificar sequência f)</button>
-    </div>
-    <br/>
-    <ul>
-        <p style="color: green; font-style: italic" aria-hidden="true">Resposta: f)
-            {% for rangeprimo in seq %}
-            {{ rangeprimo }}
-                {% if rangeprimo == seq[-1] %}.{% else %},{% endif %}
-            {% endfor %}
-        </p>
-    </ul>
-</form>
-
-<!-- FIM DA SEQUÊNCIA f) -->
-
-
-
-<!-- ONTEÚDO DA RESPOSTA DA QUESTÃO 3 -->
-<div class="container" align="center" style="text-align: justify;">
-<p>Conteúdo da resposta para a 3ª questão:</p>
-    <br>
-    <code>
-        <p>Todo conteúdo pode ser acessado no arquivo "views.py" no <a href="">Github/Elleven</a></p>
-    </code>
 </div>
 <!-- FIM DA QUESTÃO 3 -->
 
 <br>
 <!--INÍCIO DA QUESTÃO 4 -->
-<div class="container" align="center" style="text-align: justify;">
-    <p class="questao">
-        Questão: 4) Dois veículos (um carro e um caminhão) saem respectivamente  de cidades opostas pela mesma rodovia. O carro de Ribeirão Preto em direção a Franca, a uma velocidade constante de 110 km/h e o caminhão de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. Quando eles se cruzarem na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?
-    </p>
-    <p>IMPORTANTE:
-        <ol>
-            a) Considerar a distância de 100km entre a cidade de Ribeirão Preto <-> Franca.
-        </ol>
-
-        <ol>
-            b) Considerar 2 pedágios como obstáculo e que o caminhão leva 5 minutos a mais para passar em cada um deles e o carro possui tag de pedágio (Sem Parar)
-        </ol>
-
-        <ol>
-            c) Explique como chegou no resultado.
-        </ol>
-    </p>
-</div>
-
-<form method="GET">
-    <br/>
-    <label for="velcarro">Informe a velocidade em km do carro: </label>
-    <textarea type="number" class="form-control" name="velcarro" id="velcarro" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <label for="velcaminhao">Informe a velocidade em km do caminhão: </label>
-    <textarea type="number" class="form-control" name="velcaminhao" id="velcaminhao" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit" class="btn btn-primary botao">
-            Calcular
-        </button>
-    </div>
-    <br>
-    <form>
-        <p style="color: green; font-style: italic;">
-            Resposta questão 4): {{ resultado }}
-            Como cheguei ao Resultado: 
+<div id="q4">
+    <div class="container" align="center" style="text-align: justify;">
+        <p class="questao">
+            Questão: 4) Dois veículos (um carro e um caminhão) saem respectivamente  de cidades opostas pela mesma rodovia. O carro de Ribeirão Preto em direção a Franca, a uma velocidade constante de 110 km/h e o caminhão de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. Quando eles se cruzarem na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?
         </p>
+        <p>IMPORTANTE:
+            <ol>
+                a) Considerar a distância de 100km entre a cidade de Ribeirão Preto <-> Franca.
+            </ol>
+
+            <ol>
+                b) Considerar 2 pedágios como obstáculo e que o caminhão leva 5 minutos a mais para passar em cada um deles e o carro possui tag de pedágio (Sem Parar)
+            </ol>
+
+            <ol>
+                c) Explique como chegou no resultado.
+            </ol>
+        </p>
+    </div>
+
+    <form method="GET">
+        <br/>
+        <label for="velcarro">Informe a velocidade em km do carro: </label>
+        <textarea type="number" class="form-control" name="velcarro" id="velcarro" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <label for="velcaminhao">Informe a velocidade em km do caminhão: </label>
+        <textarea type="number" class="form-control" name="velcaminhao" id="velcaminhao" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit" class="btn btn-primary botao">
+                Calcular
+            </button>
+        </div>
+        <br>
+        <form>
+            <p style="color: green; font-style: italic;">
+                Resposta questão 4): {{ resultado }}
+                Como cheguei ao Resultado: 
+            </p>
+        </form>
+        <br>
     </form>
-    <br>
-</form>
-<!-- ONTEÚDO DA RESPOSTA DA QUESTÃO 3 -->
-<div class="container" align="center" style="text-align: justify;">
-<p>Conteúdo da resposta para a 4ª questão:</p>
-    <br>
-    <code>
-        <p>Todo conteúdo pode ser acessado no arquivo "views.py" no <a href="">Github/Elleven</a></p>
-    </code>
+    <!-- ONTEÚDO DA RESPOSTA DA QUESTÃO 4 -->
+    <div class="container" align="center" style="text-align: justify;">
+    <p>Conteúdo da resposta para a 4ª questão:</p>
+        <br>
+        <code>
+            <p>Todo conteúdo pode ser acessado no arquivo "views.py" no <a href="">Github/Elleven</a></p>
+        </code>
+    </div>
 </div>
-<!-- FIM DA QUESTÃO 3 -->
 <!-- FIM DA QUESTÃO 4 -->
 
-
 <!-- INÍCIO DA QUESTÃO 5 -->
-
-
-<br>
-<div class="container" align="center" style="text-align: justify;">
-    <p class="questao">
-        Questão: 5) Escreva um programa que inverta os caracteres de um string.
-    </p>
-    <p>IMPORTANTE:
-        <ol>
-            a) Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;
-        </ol>
-        <ol>
-            b) Evite usar funções prontas, como, por exemplo, reverse;
-        </ol>
-    </p>
-</div>
-
-<form method="GET">
-    <br/>
-    <label for="invertestring">Digite qualquer texto: </label>
-    <textarea type="text" class="form-control" name="invertestring" id="invertestring" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
-    <br/>
-    <div align="left">
-        <button type="submit" class="btn btn-primary botao">
-            Inverter texto
-        </button>
-    </div>
+<div id="q5">
     <br>
-    <form>
-        <p style="color: green; font-style: italic;">
-            Resposta questão 5) Seu texto invertido ficará assim: {{ texto_invertido }}
+    <div class="container" align="center" style="text-align: justify;">
+        <p class="questao">
+            Questão: 5) Escreva um programa que inverta os caracteres de um string.
         </p>
+        <p>IMPORTANTE:
+            <ol>
+                a) Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;
+            </ol>
+            <ol>
+                b) Evite usar funções prontas, como, por exemplo, reverse;
+            </ol>
+        </p>
+    </div>
+
+    <form method="GET">
+        <br/>
+        <label for="invertestring">Digite qualquer texto: </label>
+        <textarea type="text" class="form-control" name="invertestring" id="invertestring" rows="3" style="width: 500px; font-size: 16px; height: 35px;"></textarea>
+        <br/>
+        <div align="left">
+            <button type="submit" class="btn btn-primary botao">
+                Inverter texto
+            </button>
+        </div>
+        <br>
+        <form>
+            <p style="color: green; font-style: italic;">
+                Resposta questão 5) Seu texto invertido ficará assim: {{ texto_invertido }}
+            </p>
+        </form>
     </form>
-</form>
 
-
-<!-- ONTEÚDO DA RESPOSTA DA QUESTÃO 5 -->
-<div class="container" align="center" style="text-align: justify;">
-<p>Conteúdo da resposta para a 5ª questão:</p>
-    <br>
-    <code>
-        <p>Todo conteúdo pode ser acessado no arquivo "views.py" no <a href="">Github/Elleven</a></p>
-    </code>
+    <!-- ONTEÚDO DA RESPOSTA DA QUESTÃO 5 -->
+    <div class="container" align="center" style="text-align: justify;">
+    <p>Conteúdo da resposta para a 5ª questão:</p>
+        <br>
+        <code>
+            <p>Todo conteúdo pode ser acessado no arquivo "views.py" no <a href="">Github/Elleven</a></p>
+        </code>
+    </div>
 </div>
-
 <!-- FIM DA QUESTÃO 5 -->
-
-
-
 <!-- NOTAS E OBSERVAÇÕES -->
 <br/>
 <h2 align ="center">Escreva suas observações sobre as respostas apresentadas</h2>
@@ -374,8 +377,6 @@
     </li>
     {% endfor %}
 </ul>
-
 <!-- FIM DAS NOTAS E OBSERVAÇÕES -->
-
 
 {% endblock %}
